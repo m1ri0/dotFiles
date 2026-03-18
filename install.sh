@@ -47,7 +47,8 @@ gsettings set org.gnome.desktop.interface color-scheme 'prefer-dark'
 gsettings get org.gnome.desktop.interface color-scheme
 
 # switching to sddm
-sudo systemctl enable sddm
+rm /etc/systemd/system/display-manager.service
+ln -s /usr/lib/systemd/system/sddm.service /etc/systemd/system/display-manager.service
 sudo pacman -Rns lightdm lightdm-gtk-greeter
 bash -c "$(curl -fsSL https://raw.githubusercontent.com/keyitdev/sddm-astronaut-theme/master/setup.sh)"
 echo -e "\e[0;32m Altere o tema do sddm pelo arquivo de configuração \e[0m"
