@@ -37,7 +37,6 @@ mv ssh_keys.config ~/.ssh/config
 echo -e "\e[0;31m LEMBRE DE COLOCAR AS CHAVES SSH NA PASTA ~/.ssh/ \e[0m"
 
 # Setting dark mode and themes
-gsettings set org.gnome.desktop.interface color-scheme 'prefer-dark'
 sudo pacman -S --no-confirm papirus-icon-theme adwaita-icon-theme adwaita-icon-theme-legacy hicolor-icon-theme
 gsettings set org.gnome.desktop.interface icon-theme 'Papirus-Dark'
 yay -S --no-confirm papirus-folders-git
