@@ -44,26 +44,26 @@ fi
 
 # installing fonts
 echo -e "Instalando fontes..."
-sudo pacman -S -y ttf-jetbrains-mono-nerd adwaita-fonts gnu-free-fonts xorg-fonts-encodings
+sudo pacman -S ttf-jetbrains-mono-nerd adwaita-fonts gnu-free-fonts xorg-fonts-encodings
 fc-cache -fv
 
 # installing terminal
 echo -e "Instalando terminal..."
-sudo pacman -S -y alacritty
+sudo pacman -S alacritty
 mv alacritty ~/.config/alacritty
 
 # installing browser
 echo -e "Instalando navegador (zen-browser)..."
-yay -S -y zen-browser-bin
+yay -S zen-browser-bin
 
 # installing noctalia-shell
 echo -e "Instalando Noctalia Shell..."
-yay -S -y noctalia-shell
+yay -S noctalia-shell
 mv noctalia ~/.config/noctalia-shell
 
 # installing packages from official repositories
 echo -e "Instalando pacotes do repositório oficial..."
-sudo pacman -S -y eog zsh
+sudo pacman -S eog zsh
 
 # installing oh-my-zsh and powerlevel10k
 echo -e "Instalando oh-my-zsh e powerlevel10k..."
@@ -80,9 +80,9 @@ echo -e "\e[0;31m LEMBRE DE COLOCAR AS CHAVES SSH NA PASTA ~/.ssh/ \e[0m"
 # Setting dark mode and themes
 echo -e "Configurando temas e modo escuro..."
 gsettings set org.gnome.desktop.interface color-scheme 'prefer-dark'
-sudo pacman -S -y papirus-icon-theme adwaita-icon-theme adwaita-icon-theme-legacy hicolor-icon-theme
+sudo pacman -S papirus-icon-theme adwaita-icon-theme adwaita-icon-theme-legacy hicolor-icon-theme
 gsettings set org.gnome.desktop.interface icon-theme 'Papirus-Dark'
-yay -S -y papirus-folders-git
+yay -S papirus-folders-git
 papirus-folders -l --theme Papirus-Dark
 papirus-folders -C teal --theme Papirus-Dark
 gsettings set org.gnome.desktop.interface color-scheme 'prefer-dark'
