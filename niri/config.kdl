@@ -146,7 +146,7 @@ layout {
       proportion 0.33333
       proportion 0.5
       proportion 0.66666
-      proportion 0.98
+      proportion 1.0
     }
 
     // You can change the default width of the new windows.
