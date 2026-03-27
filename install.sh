@@ -94,7 +94,7 @@ echo -e "Altere o arquivo /usr/share/sddm/themes/sddm-astronaut-theme/metadata.d
 echo -e "Altere a linha ConfigFile=Themes/astronaut.conf"
 
 # Niri configs
-echo -e "Configurando Niri..."
+echo -e "Configurando Niri.." 
 mv niri ~/.config/niri
 
 # rebooting system
