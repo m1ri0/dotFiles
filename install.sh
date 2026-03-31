@@ -24,7 +24,7 @@ fi
 # updating the system
 echo -e "\e[0;32m Iniciando instalação... \e[0m"
 echo -e "Atualizando o sistema e instalando pacotes oficiais..."
-sudo pacman -Syu -y openssh ufw zsh ttf-jetbrains-mono-nerd adwaita-fonts gnu-free-fonts xorg-fonts-encodings alacritty eog xorg-xwayland xwayland-satellite papirus-icon-theme adwaita-icon-theme adwaita-icon-theme-legacy hicolor-icon-theme xorg-xeyes gnome-tweaks pipewire pipewire-pulse pipewire-alsa wireplumber pavucontrol btop python3 bind
+sudo pacman -Syu -y openssh ufw zsh ttf-jetbrains-mono-nerd adwaita-fonts gnu-free-fonts xorg-fonts-encodings alacritty eog xorg-xwayland xwayland-satellite papirus-icon-theme adwaita-icon-theme adwaita-icon-theme-legacy hicolor-icon-theme xorg-xeyes gnome-tweaks pipewire pipewire-pulse pipewire-alsa wireplumber pavucontrol btop python3 bind nwg-look
 fc-cache -fv
 echo -e "\e[0;32m [SUCESSO] Sistema atualizado! \e[0m"
 
