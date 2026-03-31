@@ -49,7 +49,7 @@ yay -S --no-confirm zen-browser-bin papirus-folders-git visual-studio-code-bin c
 
 #ssh keys configs
 echo -e "Configurando arquivo de configuração de chaves SSH..."
-if [-d ~/.ssh]; then
+if [ -d ~/.ssh ]; then
     cp ssh_keys.config ~/.ssh/config
 else
     mkdir ~/.ssh
@@ -74,8 +74,6 @@ echo -e "Altere a linha ConfigFile=Themes/astronaut.conf"
 echo "Configurando..."
 cp alacritty ~/.config/
 cp niri ~/.config/
-cp .zshrc ~/
-cp .p10k.zsh ~/
 
 # installing noctalia-shell
 echo -e "Instalando Noctalia Shell..."

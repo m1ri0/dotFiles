@@ -1,203 +1,111 @@
 # dotFiles 🎨
 
-Configuração pessoal de ambiente de desktop com **Niri** (Wayland Compositor) + **Noctalia Shell** + **SDDM** (Display Manager).
+Configuração pessoal para ambiente desktop no Arch Linux utilizando **Niri** (Wayland), **Noctalia Shell**, **Alacritty** e **Zsh**.
+
+Este repositório contém scripts de automatização (`.sh`) para instalar dependências, configurar o ambiente gráfico e preparar o terminal.
 
 ---
 
 ## ✅ Pré-requisitos
 
-Antes de iniciar a instalação, certifique-se de que:
+Para que o script fundamental (`install.sh`) funcione, você deve ter:
 
-1. **Arch Linux** ou derivado instalado
-2. **Acesso root/sudo** configurado
-3. **systemd-boot** já instalado como bootloader
-4. **sddm-greeter** já instalado como greeter do sistema
-5. **Conexão com internet** ativa
-6. **Git** instalado
+1. **Arch Linux** (ou sistema base Arch) operando.
+2. Usuário com privilégios de **sudo** configurados.
+3. Demon do **systemd** como init system.
+4. **SDDM** instalado e *ativo* (o script abortará se o sddm não estiver em execução).
+5. Conexão com a Internet.
+6. **Git** pré-instalado.
 
 ---
 
-## 🚀 Instalação Rápida
+## 🚀 Como Instalar
 
-### 1. Clonar o repositório
+A instalação foi dividida em três etapas. 
 
-```bash
-git clone https://github.com/seu-usuario/dotFiles ~/dotfiles
-cd ~/dotfiles
-```
+### 1. Preparação
 
-### 2. Dar permissão de execução
+Clone o repositório e dê permissão de execução em todos os scripts:
 
 ```bash
-chmod +x install.sh
+git clone https://github.com/seu-usuario/dotFiles ~/dotFiles
+cd ~/dotFiles
+chmod +x install.sh install-ohmyzsh.sh install-p10k.sh
 ```
 
-### 3. Executar o script de instalação
+### 2. Instalação Base (Pacotes e Configuração de Ambiente)
+
+Este é o instalador principal. Ele instalará pacotes via `pacman`, compilará o `yay`, puxará dependências do AUR, aplicará o tema do SDDM, e copiará as configurações (`alacritty`, `niri`, `noctalia`). 
+
+Ao final, ele fará um **reboot automático**.
 
 ```bash
 ./install.sh
 ```
 
-> ⚠️ **Nota**: O script será executado de forma interativa. Acompanhe e confirme as instalações.
+### 3. Configuração do Terminal (Zsh + P10k)
 
----
-
-## 📦 O que será instalado
-
-### Build Tools & AUR
-- **yay** - Helper do AUR (Arch User Repository)
-- **base-devel** - Ferramentas de compilação
-
-### Fontes
-- **ttf-jetbrains-mono-nerd** - Fonte monoespacial com ícones Nerd
-- **adwaita-fonts** - Fontes Adwaita
-- **gnu-free-fonts** - Fontes GNU livres
-- **xorg-fonts-encodings** - Encodings de fontes
-
-### Terminal & Shell
-- **Alacritty** - Terminal emulator GPU-acelerado
-- **Zsh** - Shell interativo
-- **Oh My Zsh** - Framework para Zsh
-- **Powerlevel10k** - Tema avançado para Zsh
-
-### Desktop & Display
-- **Niri** - Compositor Wayland (via yay)
-- **Noctalia Shell** - Shell customizado (via yay)
-- **SDDM** - Login screen manager
-- **EOG** - Eye of GNOME (visualizador de imagens)
-
-### Navegador
-- **Zen Browser** - Navegador Firefox baseado
-
-### Ícones & Temas
-- **Papirus Icon Theme** - Pack de ícones
-- **Adwaita Icon Theme** - Ícones Adwaita
-- **Hicolor Icon Theme**
-
-### Utilitários
-- **papirus-folders-git** - Customizador de pastas Papirus
-
----
-
-## 🔧 Configuração Manual
-
-Após o término da instalação, configure manualmente:
-
-### 1. Adicionar Chaves SSH 🔑
+Após o reboot, volte à pasta e instale o framework do Zsh e o tema:
 
 ```bash
-# Criar diretório .ssh se não existir
-mkdir -p ~/.ssh
-chmod 700 ~/.ssh
+cd ~/dotFiles
 
-# Copiar suas chaves SSH para ~/.ssh/
-# Exemplo:
-cp ~/path/to/id_rsa ~/.ssh/
-chmod 600 ~/.ssh/id_rsa
+# Instala o Oh My Zsh e muda seu shell padrão para zsh (Confirme com Y)
+./install-ohmyzsh.sh
 
-# Configurar permissões
-chmod 600 ~/.ssh/config
-```
-
-### 2. Configurar Powerlevel10k
-
-Na primeira inicialização do Zsh, você será perguntado sobre as configurações do Powerlevel10k. Escolha suas preferências ou:
-
-```bash
-p10k configure
+# Instala o Powerlevel10k e plugins adicionais
+./install-p10k.sh
 ```
 
 ---
 
-## 🎨 Customização
+## 📦 Detalhes do que cada script faz
 
-### Mudar Tema do Alacritty
+### `install.sh`
+Executa as seguintes etapas nesta ordem estrita:
 
-Edite `~/.config/alacritty/alacritty.toml` e altere a linha de import do tema:
+1. **Validação**: Verifica se o `sddm` e `systemd` então ativos.
+2. **Pacotes Oficiais**: Instala/atualiza utilitários do sistema, fontes Nerd/Adwaita, ambiente Xwayland, Alacritty, temas de ícones (Papirus), utilitários de áudio (Pipewire) e outras ferramentas.
+3. **Cache de Fontes**: Atualiza cache usando `fc-cache`.
+4. **AUR Helper**: Compila e instala nativamente a base-devel e o `yay`.
+5. **Pacotes AUR**: Instala navegadores (Zen Browser), VS Code, temas e dependências gráficas complementares do Wayland.
+6. **Configuração SSH**: Move o arquivo base `ssh_keys.config` para as configurações do usuário em `~/.ssh/config`.
+7. **Temas (GTK/Folders)**: Aplica o modo escuro no GNOME Desktop Interface e pinta as pastas do Papirus.
+8. **Tema SDDM**: Baixa e instala o tema Astronaut via script externo.
+9. **Dotfiles**: Move pastas do `alacritty` e `niri` configuradas para `~/.config/`.
+10. **Instalação do Noctalia**: Baixa o Shell e copia as configurações customizadas contidas na pasta `noctalia`.
+11. **Finalização**: Reinicia a máquina em contagem regressiva.
 
-```toml
-import = ["~/.config/alacritty/themes/themes/dracula.toml"]
-```
+### `install-ohmyzsh.sh`
+- Apenas engatilha a instalação padrão e remota do Oh My Zsh.
+- Exige interação do usuário para mudar o shell padrão do sistema.
 
-### Customizar Niri
-
-Edite `~/.config/niri/config.kdl` para ajustar comportamentos, atalhos e layout.
-
-### Customizar Noctalia
-
-Modifique os arquivos em `~/.config/noctalia/`:
-- `settings.json` - Configurações gerais
-- `colors.json` - Paleta de cores
-- `plugins.json` - Plugins habilitados
-
----
-
-## 🐛 Troubleshooting
-
-### SDDM não aparece na tela de login
-
-```bash
-# Verificar status do SDDM
-sudo systemctl status sddm
-
-# Reiniciar SDDM
-sudo systemctl restart sddm
-
-# Reabilitar SDDM como display manager padrão
-sudo systemctl set-default graphical.target
-sudo systemctl enable sddm
-```
-
-### Zsh não inicia corretamente
-
-```bash
-# Reinstalar Oh My Zsh
-sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
-
-# Reinstalar Powerlevel10k
-git clone --depth=1 https://github.com/romkatv/powerlevel10k.git \
-  ${ZSH_CUSTOM:-$HOME/.oh-my-zsh/custom}/themes/powerlevel10k
-```
-
-### Alacritty não encontra arquivo de tema
-
-Certifique-se de que o path no `alacritty.toml` está correto:
-
-```bash
-# Verificar localização dos temas
-ls ~/.config/alacritty/themes/themes/
-```
-
-### Niri não carrega
-
-```bash
-# Verificar erros na configuração
-niri check-config
-
-# Verificar logs
-journalctl -xe
-```
+### `install-p10k.sh`
+- Clona o tema **Powerlevel10k** no diretório do Oh My Zsh.
+- Clona utilitários essenciais (**zsh-autosuggestions** e **zsh-syntax-highlighting**).
+- Aloca a sua configuração customizada do zsh (`.zshrc`) para a home.
+- Aloca a sua configuração customizada do p10k (`.p10k,zsh`) para a home.
 
 ---
 
-## 📝 Notas Importantes
+## 🔧 Configuração Manual Restante
 
-- O script `install.sh` é interativo - acompanhe cada passo
-- Backup de configurações existentes é recomendado
-- Algumas dependências podem requerer compilação via AUR
-- Use `yay` em vez de `pacman` para pacotes do AUR
+Após a execução, algumas tarefas de segurança e tema necessitam revisão manual:
 
----
+1. **Chaves SSH**  
+   Você deve colar as suas chaves privadas dentro da pasta `~/.ssh/` e reajustar permissões.
+   ```bash
+   chmod 700 ~/.ssh
+   chmod 600 ~/.ssh/config
+   chmod 600 ~/.ssh/sua_chave_privada
+   ```
 
-## 🔐 Segurança
+2. **Tema Default no SDDM**  
+   Abra`/usr/share/sddm/themes/sddm-astronaut-theme/metadata.desktop` e assegure-se de que a linha aponta para a conf correta:
+   `ConfigFile=Themes/astronaut.conf`
 
-- **SSH Keys**: Mantenha suas chaves SSH seguras em `~/.ssh/`
-- **SSH Config**: Use `ssh_keys.config` como referência, não como arquivo direto
-
----
-
-## 📄 Licença
-
-Configuração pessoal - sinta-se livre para adaptar para suas necessidades.
-
----
+3. **Configuração Zsh Visual**  
+   Reconfigure ou gere sua fonte caso queira alterar a versão default fornecida nos `.dotfiles`:
+   ```bash
+   p10k configure
+   ```
