@@ -45,7 +45,7 @@ fi
 
 # installing AUR packages
 echo -e "Instalando pacotes do AUR..."
-yay -S --no-confirm zen-browser-bin papirus-folders-git visual-studio-code-bin cliphist wlsunset xdg-desktop-portal evolution-data-server dracula-gtk-theme-git
+yay -S --no-confirm zen-browser-bin papirus-folders-git visual-studio-code-bin cliphist wlsunset xdg-desktop-portal evolution-data-server dracula-gtk-theme-git nwg-look
 
 #ssh keys configs
 echo -e "Configurando arquivo de configuração de chaves SSH..."
