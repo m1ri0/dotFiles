@@ -88,10 +88,10 @@ input {
     // for the resolution.
     // If the mode is omitted altogether or is invalid, niri will pick one automatically.
     // Run `niri msg outputs` while inside a niri instance to list all outputs and their modes.
-    mode "1366x768@60.00"
+    mode "1920x1080@120.030"
 
     // You can use integer or fractional scale, for example use 1.5 for 150% scale.
-    scale 1
+    scale 2
 
     // Transform allows to rotate the output counter-clockwise, valid values are:
     // normal, 90, 180, 270, flipped, flipped-90, flipped-180 and flipped-270.
@@ -178,7 +178,7 @@ layout {
         // - CSS-like notation: "rgb(255, 127, 0)", rgba(), hsl() and a few others.
 
         // Color of the ring on the active monitor.
-        active-color "#9D23FB"
+        active-color "#C70C0C"
 
         // Color of the ring on inactive monitors.
         //
@@ -193,7 +193,7 @@ layout {
         // You can use any CSS linear-gradient tool on the web to set these up.
         // Changing the color space is also supported, check the wiki for more info.
         //
-        active-gradient from="#9D23FB" to="#32004D" angle=180
+        active-gradient from="#C70C0C" to="#360404" angle=180
 
         // You can also color the gradient relative to the entire view
         // of the workspace, rather than relative to just the window itself.
@@ -208,7 +208,7 @@ layout {
         // If you enable the border, you probably want to disable the focus ring.
         off
 
-        width 2
+        width 4
         active-color "#ffc87f"
         inactive-color "#505050"
 
@@ -393,6 +393,7 @@ binds {
     Mod+L hotkey-overlay-title="Lock the Screen: swaylock" { spawn-sh "qs -c noctalia-shell ipc call lockScreen lock"; }
     Mod+B hotkey-overlay-title="Open Browser" { spawn-sh "zen-browser"; }
     Mod+E hotkey-overlay-title="Open File Browser" { spawn "nautilus"; }
+    Mod+V hotkey-overlay-title="Open Clipboard history" { spawn-sh "qs -c noctalia-shell ipc call launcher clipboard"; }
 
     // Use spawn-sh to run a shell command. Do this if you need pipes, multiple commands, etc.
     // Note: the entire command goes as a single argument. It's passed verbatim to `sh -c`.
@@ -580,7 +581,6 @@ binds {
     Mod+Shift+R { switch-preset-window-height; }
     Mod+Ctrl+R { reset-window-height; }
     Mod+F { maximize-column; }
-    // Mod+F { set-column-width 0.98 }
     Mod+Shift+F { fullscreen-window; }
 
     // Expand the focused column to space not taken up by other fully visible columns.
