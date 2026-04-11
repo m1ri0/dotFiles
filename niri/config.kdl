@@ -193,7 +193,7 @@ layout {
         // You can use any CSS linear-gradient tool on the web to set these up.
         // Changing the color space is also supported, check the wiki for more info.
         //
-        active-gradient from="#C70C0C" to="#360404" angle=180
+        active-gradient from="#F4320B" to="#701705" angle=180
 
         // You can also color the gradient relative to the entire view
         // of the workspace, rather than relative to just the window itself.
@@ -285,7 +285,7 @@ spawn-at-startup "qs" "-c" "noctalia-shell"
 
 hotkey-overlay {
     // Uncomment this line to disable the "Important Hotkeys" pop-up at startup.
-    // skip-at-startup
+    skip-at-startup
 }
 
 // Uncomment this line to ask the clients to omit their client-side decorations if possible.

@@ -60,7 +60,7 @@ echo -e "\e[0;31m LEMBRE DE COLOCAR AS CHAVES SSH NA PASTA ~/.ssh/ \e[0m"
 # Setting dark mode
 echo -e "Configurando temas e modo escuro..."
 gsettings set org.gnome.desktop.interface icon-theme 'Papirus-Dark'
-papirus-folders -C violet --theme Papirus-Dark
+papirus-folders -C carmine --theme Papirus-Dark
 gsettings set org.gnome.desktop.interface color-scheme 'prefer-dark'
 gsettings get org.gnome.desktop.interface color-scheme
 
