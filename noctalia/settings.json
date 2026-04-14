@@ -9,12 +9,12 @@
         "density": "compact",
         "enableClipPreview": true,
         "enableClipboardChips": true,
-        "enableClipboardHistory": false,
+        "enableClipboardHistory": true,
         "enableClipboardSmartIcons": true,
         "enableSessionSearch": true,
         "enableSettingsSearch": true,
         "enableWindowsSearch": true,
-        "iconMode": "tabler",
+        "iconMode": "default",
         "ignoreMouseInput": false,
         "overviewLayer": true,
         "pinnedApps": [
@@ -31,7 +31,7 @@
         "mprisBlacklist": [
         ],
         "preferredPlayer": "",
-        "spectrumFrameRate": 30,
+        "spectrumFrameRate": 60,
         "spectrumMirrored": true,
         "visualizerType": "linear",
         "volumeFeedback": false,
@@ -47,7 +47,7 @@
         "capsuleColorKey": "none",
         "capsuleOpacity": 1,
         "contentPadding": 2,
-        "density": "mini",
+        "density": "compact",
         "displayMode": "always_visible",
         "enableExclusionZoneInset": true,
         "fontScale": 1,
@@ -60,7 +60,8 @@
         "middleClickCommand": "",
         "middleClickFollowMouse": false,
         "monitors": [
-            "eDP-1"
+            "HDMI-A-2",
+            "HDMI-A-1"
         ],
         "mouseWheelAction": "none",
         "mouseWheelWrap": true,
@@ -73,10 +74,70 @@
         "screenOverrides": [
             {
                 "enabled": false,
-                "name": "eDP-1"
+                "name": "HDMI-A-2"
+            },
+            {
+                "enabled": true,
+                "name": "HDMI-A-1",
+                "widgets": {
+                    "center": [
+                        {
+                            "characterCount": 2,
+                            "colorizeIcons": false,
+                            "emptyColor": "secondary",
+                            "enableScrollWheel": true,
+                            "focusedColor": "primary",
+                            "followFocusedScreen": false,
+                            "fontWeight": "bold",
+                            "groupedBorderOpacity": 1,
+                            "hideUnoccupied": false,
+                            "iconScale": 0.8,
+                            "id": "Workspace",
+                            "labelMode": "index",
+                            "occupiedColor": "secondary",
+                            "pillSize": 0.6,
+                            "showApplications": false,
+                            "showApplicationsHover": false,
+                            "showBadge": true,
+                            "showLabelsOnlyWhenOccupied": true,
+                            "unfocusedIconsOpacity": 1
+                        }
+                    ],
+                    "left": [
+                        {
+                            "compactMode": false,
+                            "hideMode": "hidden",
+                            "hideWhenIdle": false,
+                            "id": "MediaMini",
+                            "maxWidth": 145,
+                            "panelShowAlbumArt": true,
+                            "scrollingMode": "hover",
+                            "showAlbumArt": true,
+                            "showArtistFirst": true,
+                            "showProgressRing": true,
+                            "showVisualizer": false,
+                            "textColor": "none",
+                            "useFixedWidth": false,
+                            "visualizerType": "linear"
+                        }
+                    ],
+                    "right": [
+                        {
+                            "colorizeIcons": false,
+                            "hideMode": "hidden",
+                            "id": "ActiveWindow",
+                            "maxWidth": 145,
+                            "scrollingMode": "hover",
+                            "showIcon": true,
+                            "showText": true,
+                            "textColor": "none",
+                            "useFixedWidth": false
+                        }
+                    ]
+                }
             }
         ],
-        "showCapsule": true,
+        "showCapsule": false,
         "showOnWorkspaceSwitch": true,
         "showOutline": false,
         "useSeparateOpacity": false,
@@ -90,6 +151,7 @@
                     "maxWidth": 145,
                     "scrollingMode": "hover",
                     "showIcon": true,
+                    "showText": true,
                     "textColor": "none",
                     "useFixedWidth": false
                 }
@@ -135,17 +197,6 @@
             ],
             "right": [
                 {
-                    "blacklist": [
-                    ],
-                    "chevronColor": "none",
-                    "colorizeIcons": false,
-                    "drawerEnabled": true,
-                    "hidePassive": false,
-                    "id": "Tray",
-                    "pinned": [
-                    ]
-                },
-                {
                     "compactMode": true,
                     "diskPath": "/",
                     "iconColor": "none",
@@ -177,28 +228,19 @@
                 },
                 {
                     "displayMode": "onhover",
-                    "iconColor": "primary",
-                    "id": "Network",
-                    "textColor": "none"
-                },
-                {
-                    "displayMode": "onhover",
                     "iconColor": "none",
                     "id": "Volume",
                     "middleClickCommand": "pwvucontrol || pavucontrol",
                     "textColor": "none"
                 },
                 {
-                    "deviceNativePath": "__default__",
-                    "displayMode": "graphic",
-                    "hideIfIdle": false,
-                    "hideIfNotDetected": true,
-                    "id": "Battery",
-                    "showNoctaliaPerformance": false,
-                    "showPowerProfiles": false
+                    "displayMode": "onhover",
+                    "iconColor": "primary",
+                    "id": "Network",
+                    "textColor": "none"
                 },
                 {
-                    "clockColor": "none",
+                    "clockColor": "error",
                     "customFont": "",
                     "formatHorizontal": "HH:mm ddd, MMM dd",
                     "formatVertical": "HH mm - dd MM",
@@ -234,12 +276,13 @@
     },
     "colorSchemes": {
         "darkMode": true,
-        "generationMethod": "rainbow",
+        "generationMethod": "vibrant",
         "manualSunrise": "06:30",
         "manualSunset": "18:30",
         "monitorForColors": "",
-        "predefinedScheme": "Dracula",
+        "predefinedScheme": "Occult Umbral",
         "schedulingMode": "off",
+        "syncGsettings": true,
         "useWallpaperColors": false
     },
     "controlCenter": {
@@ -303,10 +346,49 @@
         }
     },
     "desktopWidgets": {
-        "enabled": false,
-        "gridSnap": false,
-        "gridSnapScale": false,
+        "enabled": true,
+        "gridSnap": true,
+        "gridSnapScale": true,
         "monitorWidgets": [
+            {
+                "name": "HDMI-A-2",
+                "widgets": [
+                    {
+                        "clockColor": "none",
+                        "clockStyle": "minimal",
+                        "customFont": "",
+                        "format": "HH:mm\\nd MMMM yyyy",
+                        "id": "Clock",
+                        "roundedCorners": true,
+                        "scale": 1.2774510818346956,
+                        "showBackground": true,
+                        "useCustomFont": false,
+                        "x": 42,
+                        "y": 63
+                    },
+                    {
+                        "id": "Weather",
+                        "roundedCorners": true,
+                        "scale": 0.554322005325529,
+                        "showBackground": false,
+                        "x": 21,
+                        "y": 147
+                    },
+                    {
+                        "hideMode": "hidden",
+                        "id": "MediaPlayer",
+                        "roundedCorners": true,
+                        "scale": 0.8400747577704935,
+                        "showAlbumArt": true,
+                        "showBackground": false,
+                        "showButtons": true,
+                        "showVisualizer": true,
+                        "visualizerType": "linear",
+                        "x": 672,
+                        "y": 987
+                    }
+                ]
+            }
         ],
         "overviewEnabled": true
     },
@@ -316,8 +398,8 @@
         "colorizeIcons": false,
         "deadOpacity": 0.6,
         "displayMode": "auto_hide",
-        "dockType": "floating",
-        "enabled": false,
+        "dockType": "attached",
+        "enabled": true,
         "floatingRatio": 1,
         "groupApps": false,
         "groupClickAction": "cycle",
@@ -332,13 +414,14 @@
         "launcherPosition": "end",
         "launcherUseDistroLogo": false,
         "monitors": [
+            "HDMI-A-2"
         ],
         "onlySameOutput": true,
         "pinnedApps": [
         ],
         "pinnedStatic": false,
         "position": "bottom",
-        "showDockIndicator": false,
+        "showDockIndicator": true,
         "showLauncherIcon": false,
         "sitOnFrame": false,
         "size": 1
@@ -354,7 +437,7 @@
         "clockFormat": "hh\\nmm",
         "clockStyle": "digital",
         "compactLockScreen": false,
-        "dimmerOpacity": 0.2,
+        "dimmerOpacity": 0.15,
         "enableBlurBehind": true,
         "enableLockScreenCountdown": true,
         "enableLockScreenMediaControls": true,
@@ -388,16 +471,17 @@
         "language": "",
         "lockOnSuspend": true,
         "lockScreenAnimations": true,
-        "lockScreenBlur": 0.3,
+        "lockScreenBlur": 0.5,
         "lockScreenCountdownDuration": 10000,
         "lockScreenMonitors": [
-            "eDP-1"
+            "HDMI-A-2",
+            "HDMI-A-1"
         ],
-        "lockScreenTint": 0,
+        "lockScreenTint": 0.5,
         "passwordChars": true,
         "radiusRatio": 1,
         "reverseScroll": false,
-        "scaleRatio": 0.8500000000000001,
+        "scaleRatio": 0.8,
         "screenRadiusRatio": 1,
         "shadowDirection": "bottom_right",
         "shadowOffsetX": 2,
@@ -406,6 +490,7 @@
         "showHibernateOnLockScreen": false,
         "showScreenCorners": false,
         "showSessionButtonsOnLockScreen": false,
+        "smoothScrollEnabled": true,
         "telemetryEnabled": false
     },
     "hooks": {
@@ -422,10 +507,10 @@
     },
     "idle": {
         "customCommands": "[]",
-        "enabled": false,
+        "enabled": true,
         "fadeDuration": 5,
         "lockCommand": "",
-        "lockTimeout": 660,
+        "lockTimeout": 300,
         "resumeLockCommand": "",
         "resumeScreenOffCommand": "",
         "resumeSuspendCommand": "",
@@ -436,45 +521,46 @@
     },
     "location": {
         "analogClockInCalendar": false,
+        "autoLocate": false,
         "firstDayOfWeek": 0,
         "hideWeatherCityName": false,
-        "hideWeatherTimezone": false,
+        "hideWeatherTimezone": true,
         "name": "São José do Rio Preto, SP",
         "showCalendarEvents": true,
         "showCalendarWeather": true,
         "showWeekNumberInCalendar": false,
-        "use12hourFormat": false,
+        "use12hourFormat": true,
         "useFahrenheit": false,
         "weatherEnabled": true,
-        "weatherShowEffects": true
+        "weatherShowEffects": true,
+        "weatherTaliaMascotAlways": false
     },
     "network": {
-        "airplaneModeEnabled": false,
-        "bluetoothAutoConnect": false,
+        "bluetoothAutoConnect": true,
         "bluetoothDetailsViewMode": "grid",
         "bluetoothHideUnnamedDevices": false,
         "bluetoothRssiPollIntervalMs": 60000,
         "bluetoothRssiPollingEnabled": false,
-        "disableDiscoverability": false,
+        "disableDiscoverability": true,
         "networkPanelView": "wifi",
         "wifiDetailsViewMode": "grid"
     },
     "nightLight": {
-        "autoSchedule": false,
+        "autoSchedule": true,
         "dayTemp": "6500",
-        "enabled": true,
+        "enabled": false,
         "forced": false,
         "manualSunrise": "06:30",
-        "manualSunset": "21:00",
-        "nightTemp": "3168"
+        "manualSunset": "18:30",
+        "nightTemp": "4000"
     },
     "noctaliaPerformance": {
-        "disableDesktopWidgets": true,
-        "disableWallpaper": true
+        "disableDesktopWidgets": false,
+        "disableWallpaper": false
     },
     "notifications": {
         "backgroundOpacity": 1,
-        "clearDismissed": true,
+        "clearDismissed": false,
         "criticalUrgencyDuration": 15,
         "density": "default",
         "enableBatteryToast": true,
@@ -506,14 +592,14 @@
     },
     "osd": {
         "autoHideMs": 2000,
-        "backgroundOpacity": 0.6,
+        "backgroundOpacity": 1,
         "enabled": true,
         "enabledTypes": [
             0,
             1,
             2
         ],
-        "location": "top",
+        "location": "top_right",
         "monitors": [
         ],
         "overlayLayer": true
@@ -524,7 +610,7 @@
     },
     "sessionMenu": {
         "countdownDuration": 10000,
-        "enableCountdown": true,
+        "enableCountdown": false,
         "largeButtonsLayout": "single-row",
         "largeButtonsStyle": true,
         "position": "center",
@@ -547,36 +633,36 @@
                 "action": "hibernate",
                 "command": "",
                 "countdownEnabled": true,
-                "enabled": true,
-                "keybind": "3"
+                "enabled": false,
+                "keybind": ""
             },
             {
                 "action": "reboot",
                 "command": "",
                 "countdownEnabled": true,
                 "enabled": true,
-                "keybind": "4"
+                "keybind": "3"
             },
             {
                 "action": "logout",
                 "command": "",
                 "countdownEnabled": true,
                 "enabled": true,
-                "keybind": "5"
+                "keybind": "4"
             },
             {
                 "action": "shutdown",
                 "command": "",
                 "countdownEnabled": true,
                 "enabled": true,
-                "keybind": "6"
+                "keybind": "5"
             },
             {
                 "action": "rebootToUefi",
                 "command": "",
                 "countdownEnabled": true,
-                "enabled": true,
-                "keybind": "7"
+                "enabled": false,
+                "keybind": ""
             },
             {
                 "action": "userspaceReboot",
@@ -620,42 +706,244 @@
     },
     "ui": {
         "boxBorderEnabled": false,
-        "fontDefault": "Sans Serif",
-        "fontDefaultScale": 0.9,
-        "fontFixed": "JetBrainsMono Nerd Font",
-        "fontFixedScale": 0.95,
+        "fontDefault": "FreeSans",
+        "fontDefaultScale": 1,
+        "fontFixed": "JetBrainsMono Nerd Font Mono",
+        "fontFixedScale": 1,
         "panelBackgroundOpacity": 0.93,
         "panelsAttachedToBar": true,
-        "scrollbarAlwaysVisible": false,
+        "scrollbarAlwaysVisible": true,
         "settingsPanelMode": "attached",
         "settingsPanelSideBarCardStyle": false,
         "tooltipsEnabled": true,
         "translucentWidgets": false
     },
     "wallpaper": {
-        "automationEnabled": false,
-        "directory": "/home/m1ri0/Imagens/wallpapers",
-        "enableMultiMonitorDirectories": false,
+        "automationEnabled": true,
+        "directory": "/home/m1ri0/Imagens/Wallpapers",
+        "enableMultiMonitorDirectories": true,
         "enabled": true,
         "favorites": [
+            {
+                "appearance": "dark",
+                "colorScheme": "Occult Umbral",
+                "darkMode": true,
+                "generationMethod": "vibrant",
+                "paletteColors": [
+                    "#8b2e2e",
+                    "#8baa82",
+                    "#9a7398",
+                    "#c25b5b"
+                ],
+                "path": "/home/m1ri0/Imagens/Wallpapers/a_cartoon_of_a_man_holding_a_camera.jpg",
+                "useWallpaperColors": false
+            },
+            {
+                "appearance": "dark",
+                "colorScheme": "Occult Umbral",
+                "darkMode": true,
+                "generationMethod": "rainbow",
+                "paletteColors": [
+                    "#ffb2ba",
+                    "#e5bdc0",
+                    "#e9bf8f",
+                    "#ffb4ab"
+                ],
+                "path": "/home/m1ri0/Imagens/Wallpapers/red-forest.jpg",
+                "useWallpaperColors": true
+            },
+            {
+                "appearance": "dark",
+                "colorScheme": "Occult Umbral",
+                "darkMode": true,
+                "generationMethod": "vibrant",
+                "paletteColors": [
+                    "#8b2e2e",
+                    "#8baa82",
+                    "#9a7398",
+                    "#c25b5b"
+                ],
+                "path": "/home/m1ri0/Imagens/Wallpapers/venom-crystal.jpg",
+                "useWallpaperColors": false
+            },
+            {
+                "appearance": "dark",
+                "colorScheme": "Occult Umbral",
+                "darkMode": true,
+                "generationMethod": "vibrant",
+                "paletteColors": [
+                    "#8b2e2e",
+                    "#8baa82",
+                    "#9a7398",
+                    "#c25b5b"
+                ],
+                "path": "/home/m1ri0/Imagens/Wallpapers/venom.jpg",
+                "useWallpaperColors": false
+            },
+            {
+                "appearance": "dark",
+                "colorScheme": "Occult Umbral",
+                "darkMode": true,
+                "generationMethod": "vibrant",
+                "paletteColors": [
+                    "#8b2e2e",
+                    "#8baa82",
+                    "#9a7398",
+                    "#c25b5b"
+                ],
+                "path": "/home/m1ri0/Imagens/Wallpapers/venom_spider.jpg",
+                "useWallpaperColors": false
+            },
+            {
+                "appearance": "dark",
+                "colorScheme": "Occult Umbral",
+                "darkMode": true,
+                "generationMethod": "vibrant",
+                "paletteColors": [
+                    "#8b2e2e",
+                    "#8baa82",
+                    "#9a7398",
+                    "#c25b5b"
+                ],
+                "path": "/home/m1ri0/Imagens/Wallpapers/miles_eyes.png",
+                "useWallpaperColors": false
+            },
+            {
+                "appearance": "dark",
+                "colorScheme": "Occult Umbral",
+                "darkMode": true,
+                "generationMethod": "vibrant",
+                "paletteColors": [
+                    "#8b2e2e",
+                    "#8baa82",
+                    "#9a7398",
+                    "#c25b5b"
+                ],
+                "path": "/home/m1ri0/Imagens/Wallpapers/miles_spider.png",
+                "useWallpaperColors": false
+            },
+            {
+                "appearance": "dark",
+                "colorScheme": "Occult Umbral",
+                "darkMode": true,
+                "generationMethod": "vibrant",
+                "paletteColors": [
+                    "#8b2e2e",
+                    "#8baa82",
+                    "#9a7398",
+                    "#c25b5b"
+                ],
+                "path": "/home/m1ri0/Imagens/Wallpapers/a_cartoon_of_a_spider_man.jpg",
+                "useWallpaperColors": false
+            },
+            {
+                "appearance": "dark",
+                "colorScheme": "Occult Umbral",
+                "darkMode": true,
+                "generationMethod": "vibrant",
+                "paletteColors": [
+                    "#8b2e2e",
+                    "#8baa82",
+                    "#9a7398",
+                    "#c25b5b"
+                ],
+                "path": "/home/m1ri0/Imagens/Wallpapers_secundario/venom-crystal.jpg",
+                "useWallpaperColors": false
+            },
+            {
+                "appearance": "dark",
+                "colorScheme": "Occult Umbral",
+                "darkMode": true,
+                "generationMethod": "vibrant",
+                "paletteColors": [
+                    "#8b2e2e",
+                    "#8baa82",
+                    "#9a7398",
+                    "#c25b5b"
+                ],
+                "path": "/home/m1ri0/Imagens/Wallpapers_secundario/miles_eyes.png",
+                "useWallpaperColors": false
+            },
+            {
+                "appearance": "dark",
+                "colorScheme": "Occult Umbral",
+                "darkMode": true,
+                "generationMethod": "vibrant",
+                "paletteColors": [
+                    "#8b2e2e",
+                    "#8baa82",
+                    "#9a7398",
+                    "#c25b5b"
+                ],
+                "path": "/home/m1ri0/Imagens/Wallpapers_secundario/venom.jpg",
+                "useWallpaperColors": false
+            },
+            {
+                "appearance": "dark",
+                "colorScheme": "Occult Umbral",
+                "darkMode": true,
+                "generationMethod": "vibrant",
+                "paletteColors": [
+                    "#8b2e2e",
+                    "#8baa82",
+                    "#9a7398",
+                    "#c25b5b"
+                ],
+                "path": "/home/m1ri0/Imagens/Wallpapers_principal/a_cartoon_of_a_spider_man.jpg",
+                "useWallpaperColors": false
+            },
+            {
+                "appearance": "dark",
+                "colorScheme": "Occult Umbral",
+                "darkMode": true,
+                "generationMethod": "vibrant",
+                "paletteColors": [
+                    "#8b2e2e",
+                    "#8baa82",
+                    "#9a7398",
+                    "#c25b5b"
+                ],
+                "path": "/home/m1ri0/Imagens/Wallpapers_principal/miles_spider.png",
+                "useWallpaperColors": false
+            },
+            {
+                "appearance": "dark",
+                "colorScheme": "Occult Umbral",
+                "darkMode": true,
+                "generationMethod": "vibrant",
+                "paletteColors": [
+                    "#8b2e2e",
+                    "#8baa82",
+                    "#9a7398",
+                    "#c25b5b"
+                ],
+                "path": "/home/m1ri0/Imagens/Wallpapers_principal/venom_spider.jpg",
+                "useWallpaperColors": false
+            }
         ],
         "fillColor": "#000000",
         "fillMode": "crop",
-        "hideWallpaperFilenames": false,
+        "hideWallpaperFilenames": true,
+        "linkLightAndDarkWallpapers": true,
         "monitorDirectories": [
             {
-                "directory": "/home/m1ri0/Imagens/wallpapers",
-                "name": "eDP-1",
+                "directory": "/home/m1ri0/Imagens/Wallpapers_principal",
+                "name": "HDMI-A-2",
+                "wallpaper": ""
+            },
+            {
+                "directory": "/home/m1ri0/Imagens/Wallpapers_secundario",
+                "name": "HDMI-A-1",
                 "wallpaper": ""
             }
         ],
-        "overviewBlur": 0.4,
+        "overviewBlur": 0.5,
         "overviewEnabled": false,
         "overviewTint": 0.6,
-        "panelPosition": "follow_bar",
-        "randomIntervalSec": 300,
-        "setWallpaperOnAllMonitors": true,
-        "showHiddenFiles": false,
+        "panelPosition": "top_left",
+        "randomIntervalSec": 600,
+        "setWallpaperOnAllMonitors": false,
+        "showHiddenFiles": true,
         "skipStartupTransition": false,
         "solidColor": "#1a1a2e",
         "sortOrder": "name",
@@ -669,10 +957,10 @@
             "pixelate",
             "honeycomb"
         ],
-        "useOriginalImages": false,
+        "useOriginalImages": true,
         "useSolidColor": false,
         "useWallhaven": false,
-        "viewMode": "single",
+        "viewMode": "browse",
         "wallhavenApiKey": "",
         "wallhavenCategories": "111",
         "wallhavenOrder": "desc",
@@ -683,6 +971,6 @@
         "wallhavenResolutionMode": "atleast",
         "wallhavenResolutionWidth": "",
         "wallhavenSorting": "relevance",
-        "wallpaperChangeMode": "random"
+        "wallpaperChangeMode": "alphabetical"
     }
 }
